@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberFit — Build Confidence. Get Lean. Level Up.</title>
+  <meta name="description" content="CyberFit helps men in their 20s get lean, build confidence, and upgrade their lifestyle with a simple fitness system." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>CyberFit</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#system">System</a>
+        <a href="#results">Results</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <button class="nav-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="sr-only">Open menu</span>
+        <span class="burger" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#system">System</a>
+      <a href="#results">Results</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#pricing">Start Now</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="bg-glow" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <p class="kicker"><span class="dot"></span> MIAMI VICE MODE: ON</p>
+          <h1>
+            Get Lean. Build Confidence.
+            <span class="gradient">Level Up Your Presence.</span>
+          </h1>
+          <p class="subhead">
+            CyberFit is a simple, repeatable system for men in their 20s who feel stuck.
+            Train smart, look better, carry yourself like you mean it — and let your results do the talking.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#pricing">Start CyberFit</a>
+            <a class="btn btn-ghost" href="#system">See the System</a>
+          </div>
+
+          <div class="trust">
+            <div class="trust-item">
+              <span class="pill">⚡</span>
+              <div>
+                <strong>30–45 min sessions</strong>
+                <small>No 2-hour gym marathons</small>
+              </div>
+            </div>
+            <div class="trust-item">
+              <span class="pill">📈</span>
+              <div>
+                <strong>Progress tracking</strong>
+                <small>Visible wins every week</small>
+              </div>
+            </div>
+            <div class="trust-item">
+              <span class="pill">🧠</span>
+              <div>
+                <strong>Confidence habits</strong>
+                <small>Not just workouts</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="card neon-card">
+            <div class="card-top">
+              <div class="chip">CYBERFIT DASH</div>
+              <div class="status">LIVE</div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <span class="label">Weekly Workouts</span>
+                <span class="value">4</span>
+              </div>
+              <div class="stat">
+                <span class="label">Daily Steps</span>
+                <span class="value">8–12k</span>
+              </div>
+              <div class="stat">
+                <span class="label">Protein Target</span>
+                <span class="value">0.8–1g/lb</span>
+              </div>
+              <div class="stat">
+                <span class="label">Confidence Quests</span>
+                <span class="value">3/day</span>
+              </div>
+            </div>
+
+            <div class="progress">
+              <div class="progress-head">
+                <span>Consistency</span>
+                <span id="consistencyLabel">78%</span>
+              </div>
+              <div class="bar">
+                <div class="bar-fill" id="consistencyBar" style="width:78%"></div>
+              </div>
+              <p class="hint">Small wins stack into swagger.</p>
+            </div>
+
+            <div class="card-actions">
+              <button class="btn btn-small btn-ghost" id="boostBtn">Boost +5%</button>
+              <a class="btn btn-small btn-primary" href="#pricing">Unlock Program</a>
+            </div>
+          </div>
+
+          <div class="mini">
+            <div class="mini-card">
+              <strong>Body</strong>
+              <span>Lean + athletic</span>
+            </div>
+            <div class="mini-card">
+              <strong>Mind</strong>
+              <span>Calm confidence</span>
+            </div>
+            <div class="mini-card">
+              <strong>Style</strong>
+              <span>Clean presence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM -->
+    <section class="section" id="system">
+      <div class="container">
+        <div class="section-head">
+          <h2>The CyberFit System</h2>
+          <p>Simple framework. No chaos. You’ll know exactly what to do each week.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature">
+            <h3>1) Train (4x/week)</h3>
+            <p>Full-body strength + athletic finishers. Build muscle, burn fat, move better.</p>
+            <ul>
+              <li>Compound lifts</li>
+              <li>Progressive overload</li>
+              <li>Short finishers</li>
+            </ul>
+          </article>
+
+          <article class="feature">
+            <h3>2) Fuel (no “diet”)</h3>
+            <p>Eat like a man with a mission: protein-first, simple plates, repeatable meals.</p>
+            <ul>
+              <li>Protein target</li>
+              <li>Calorie range</li>
+              <li>80/20 consistency</li>
+            </ul>
+          </article>
+
+          <article class="feature">
+            <h3>3) Confidence Quests</h3>
+            <p>Daily micro-actions that build social confidence and self-respect.</p>
+            <ul>
+              <li>Posture + eye contact</li>
+              <li>Speak with pace</li>
+              <li>Small discomfort reps</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="section alt" id="results">
+      <div class="container">
+        <div class="section-head">
+          <h2>What you’ll notice in 30 days</h2>
+          <p>Not promises — patterns that show up when you execute consistently.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Physical</h3>
+            <ul class="checklist">
+              <li>More definition in shoulders/arms/chest</li>
+              <li>Better posture (looks stronger instantly)</li>
+              <li>Less “puffy” look from better habits</li>
+              <li>Energy up, cravings down</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Confidence</h3>
+            <ul class="checklist">
+              <li>You feel in control of your day</li>
+              <li>You speak with more certainty</li>
+              <li>You stop “waiting to feel ready”</li>
+              <li>You carry yourself differently</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="quote">
+          <p>
+            “Confidence isn’t a personality trait. It’s a side effect of keeping promises to yourself.”
+          </p>
+          <span>— CyberFit Principle</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Choose your level</h2>
+          <p>Start simple. Upgrade when you want more accountability.</p>
+        </div>
+
+        <div class="pricing">
+          <div class="price-card">
+            <div class="price-top">
+              <h3>Starter</h3>
+              <p class="price">$49 <span>/ one-time</span></p>
+              <p class="muted">The core system + weekly plan template.</p>
+            </div>
+            <ul>
+              <li>4-day workout template</li>
+              <li>Nutrition targets</li>
+              <li>Confidence quest checklist</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contact">Get Starter</a>
+          </div>
+
+          <div class="price-card featured">
+            <div class="badge">MOST POPULAR</div>
+            <div class="price-top">
+              <h3>Program</h3>
+              <p class="price">$149 <span>/ month</span></p>
+              <p class="muted">Full program + tracking + weekly adjustments.</p>
+            </div>
+            <ul>
+              <li>Progressive training plan</li>
+              <li>Meal framework + swaps</li>
+              <li>Weekly check-ins (self-guided)</li>
+              <li>Tracker dashboard (simple)</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">Start Program</a>
+          </div>
+
+          <div class="price-card">
+            <div class="price-top">
+              <h3>Elite</h3>
+              <p class="price">$399 <span>/ month</span></p>
+              <p class="muted">High accountability + direct coaching.</p>
+            </div>
+            <ul>
+              <li>Personalized programming</li>
+              <li>Weekly feedback</li>
+              <li>Habit accountability</li>
+              <li>Priority support</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contact">Apply for Elite</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section alt" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>FAQ</h2>
+          <p>Clear answers. No overthinking.</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Do I need to be in shape already?</summary>
+            <p>No. The whole point is to start where you are and build momentum with simple execution.</p>
+          </details>
+          <details>
+            <summary>What if I can only work out 3 days?</summary>
+            <p>That still works. Consistency beats perfection. We’ll adjust to your schedule.</p>
+          </details>
+          <details>
+            <summary>Is this about “getting women”?</summary>
+            <p>It’s about becoming the kind of man who feels confident in his body and life. Dating outcomes improve as a side effect.</p>
+          </details>
+          <details>
+            <summary>Do you include meal plans?</summary>
+            <p>You’ll get targets and a simple meal framework. You can plug in foods you actually like.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <h2>Ready to go CyberFit?</h2>
+            <p class="muted">Add your booking link or email here. Keep one main CTA.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:youremail@example.com">Email Me</a>
+            <a class="btn btn-ghost" href="#">Book a Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand small">
+        <div class="logo" aria-hidden="true"></div>
+        <span>CyberFit</span>
+      </div>
+      <p class="muted">© <span id="year"></span> CyberFit. Built in Miami Vice mode.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
