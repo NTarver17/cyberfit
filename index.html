@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CyberFit — Miami Vice Mode</title>
-  <meta name="description" content="CyberFit: a neon-fueled confidence + fitness system for men who want to level up." />
+  <meta name="description" content="CyberFit: a cinematic fitness + confidence system for men in their 20s. Miami Vice energy. Studio-level design." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +14,26 @@
 </head>
 
 <body>
-  <!-- Background FX layers -->
-  <div class="fx" id="fxRoot">
+  <!-- FX BACKDROP -->
+  <div class="fx" id="fxRoot" aria-hidden="true">
     <div class="fx__gradient"></div>
     <div class="fx__grid"></div>
-    <div class="fx__scanlines"></div>
+    <div class="fx__scan"></div>
+    <div class="fx__noise"></div>
     <canvas class="fx__particles" id="particles"></canvas>
-    <div class="fx__noise" aria-hidden="true"></div>
+    <div class="fx__vignette"></div>
+  </div>
+
+  <!-- LOADING INTRO -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__card">
+      <div class="intro__logo">
+        <span class="brand__mark"></span>
+        <span class="intro__word">CyberFit</span>
+      </div>
+      <p class="intro__sub">MIAMI VICE MODE</p>
+      <div class="intro__bar"><span></span></div>
+    </div>
   </div>
 
   <!-- NAV -->
@@ -35,18 +48,18 @@
       <nav class="nav__links" aria-label="Primary">
         <a href="#system">System</a>
         <a href="#proof">Proof</a>
-        <a href="#gallery">Vibe</a>
+        <a href="#vibe">Vibe</a>
         <a href="#programs">Programs</a>
         <a href="#faq">FAQ</a>
       </nav>
 
       <div class="nav__actions">
-        <button class="iconbtn" id="themeBtn" type="button" aria-label="Toggle effects">
+        <button class="iconbtn" id="fxBtn" type="button" aria-label="Toggle FX">
           <span class="iconbtn__dot"></span>
           <span class="iconbtn__text">FX</span>
         </button>
 
-        <a class="btn btn--primary btn--small nav__start" href="#programs">
+        <a class="btn btn--primary btn--small nav__cta" href="#programs">
           <span>Start</span><i class="btn__shine" aria-hidden="true"></i>
         </a>
 
@@ -59,7 +72,7 @@
     <div class="mobile" id="mobileMenu" hidden>
       <a href="#system">System</a>
       <a href="#proof">Proof</a>
-      <a href="#gallery">Vibe</a>
+      <a href="#vibe">Vibe</a>
       <a href="#programs">Programs</a>
       <a href="#faq">FAQ</a>
       <a class="btn btn--primary" href="#programs"><span>Start CyberFit</span><i class="btn__shine" aria-hidden="true"></i></a>
@@ -67,10 +80,11 @@
   </header>
 
   <main id="top">
+
     <!-- HERO -->
-    <section class="hero">
-      <div class="container hero__inner" id="parallaxRoot">
-        <div class="hero__left">
+    <section class="hero hero--cinematic">
+      <div class="container hero__inner">
+        <div class="hero__left reveal">
           <p class="kicker">
             <span class="kicker__dot"></span>
             <span class="kicker__text">BUILD THE BODY • UPGRADE THE PRESENCE</span>
@@ -78,12 +92,12 @@
 
           <h1 class="hero__title">
             Enter <span class="grad">CyberFit</span>.
-            <span class="subgrad">Confidence is the byproduct.</span>
+            <span class="subgrad">Confidence becomes default.</span>
           </h1>
 
           <p class="hero__sub">
-            A neon-clean system for men in their 20s who want to get lean, carry themselves with authority,
-            and feel impossible to ignore — without living in the gym.
+            A cinematic system for men in their 20s to get lean, move athletic, and carry presence that women feel.
+            No chaos. No cringe. Just results + aura.
           </p>
 
           <div class="hero__cta">
@@ -121,26 +135,17 @@
           </div>
         </div>
 
-        <div class="hero__right">
-          <!-- Uses your generated poster as the "wow" image -->
-          <figure class="poster reveal" data-tilt>
-            <img
-              class="poster__img"
-              src="assets/hero-poster.webp"
-              alt="CyberFit Miami Vice poster artwork"
-              loading="eager"
-            />
-            <figcaption class="poster__overlay">
-              <div class="poster__top">
-                <span class="chip">CYBERFIT / DASH</span>
-                <span class="live"><span class="live__dot"></span> LIVE</span>
-              </div>
+        <!-- COVER CARD (ALWAYS VISIBLE) -->
+        <div class="hero__right reveal">
+          <div class="coverCard" data-tilt>
+            <div class="coverCard__top">
+              <span class="chip">CYBERFIT / POSTER</span>
+              <span class="live"><span class="live__dot"></span> LIVE</span>
+            </div>
 
-              <div class="poster__title">
-                <span class="poster__big">LEVEL</span>
-                <span class="poster__big grad">UP</span>
-              </div>
+            <img class="coverCard__img" src="assets/hero-poster.png" alt="CyberFit Miami Vice Hero Poster" loading="eager">
 
+            <div class="coverCard__bottom">
               <div class="meter">
                 <div class="meter__row">
                   <span>Consistency</span>
@@ -149,15 +154,15 @@
                 <div class="meter__bar">
                   <div class="meter__fill" id="meterFill" style="width:78%"></div>
                 </div>
-                <p class="meter__hint">Stack small wins → swagger becomes default.</p>
+                <p class="meter__hint">Small wins → swagger becomes permanent.</p>
 
-                <div class="poster__actions">
+                <div class="meter__actions">
                   <button class="btn btn--ghost btn--small" id="boostBtn" type="button">Boost +5%</button>
                   <a class="btn btn--primary btn--small" href="#programs"><span>Unlock</span><i class="btn__shine" aria-hidden="true"></i></a>
                 </div>
               </div>
-            </figcaption>
-          </figure>
+            </div>
+          </div>
 
           <div class="float float--a" aria-hidden="true"></div>
           <div class="float float--b" aria-hidden="true"></div>
@@ -171,37 +176,37 @@
       <div class="container">
         <div class="section__head reveal">
           <h2>One system. Zero chaos.</h2>
-          <p>Designed for consistency. Built for confidence. Styled for Miami Vice energy.</p>
+          <p>Train, fuel, and build presence — in a way you can actually sustain.</p>
         </div>
 
         <div class="cards3">
           <article class="bigcard reveal" data-tilt>
             <h3>01 — Train</h3>
-            <p>Full-body strength + athletic finishers. You look better and move better.</p>
+            <p>Full-body strength + athletic finishers. You don’t just look better — you move better.</p>
             <ul>
-              <li>Compound lifts</li>
               <li>Progressive overload</li>
               <li>Short finishers</li>
+              <li>Minimum effective dose</li>
             </ul>
           </article>
 
           <article class="bigcard reveal" data-tilt>
             <h3>02 — Fuel</h3>
-            <p>Protein-first, simple meals, repeatable targets. No weird diets.</p>
+            <p>Protein-first targets + repeatable meals. No weird diets.</p>
             <ul>
-              <li>Calorie range</li>
-              <li>Protein target</li>
+              <li>Simple calorie range</li>
+              <li>Protein anchor</li>
               <li>80/20 consistency</li>
             </ul>
           </article>
 
           <article class="bigcard reveal" data-tilt>
             <h3>03 — Presence</h3>
-            <p>Micro “confidence reps” that change how you walk, talk, and show up.</p>
+            <p>Confidence reps that change posture, voice, and aura in real life.</p>
             <ul>
               <li>Posture + eye contact</li>
               <li>Voice pace + clarity</li>
-              <li>Small discomfort reps</li>
+              <li>Micro discomfort reps</li>
             </ul>
           </article>
         </div>
@@ -212,8 +217,8 @@
     <section class="section section--alt" id="proof">
       <div class="container">
         <div class="section__head reveal">
-          <h2>Proof blocks where people hesitate</h2>
-          <p>Swap these with real transformations later. For now: premium placeholders.</p>
+          <h2>Proof where people hesitate</h2>
+          <p>Swap placeholders for real wins later. The design already feels premium.</p>
         </div>
 
         <div class="proofgrid">
@@ -222,8 +227,8 @@
               <span class="proof__tag">Transformation</span>
               <span class="proof__spark"></span>
             </div>
-            <img class="proof__photo" src="assets/proof-1.webp" alt="Transformation proof image" loading="lazy" />
-            <p class="proof__text">“Dropped 12 lbs, shoulders popped, confidence went nuclear.”</p>
+            <img class="proof__photo" src="assets/proof-1.webp" alt="Transformation proof" loading="lazy" />
+            <p class="proof__text">“Dropped 12 lbs. Shoulders popped. Confidence went nuclear.”</p>
             <span class="proof__name">— Client A</span>
           </div>
 
@@ -232,8 +237,8 @@
               <span class="proof__tag">Testimonial</span>
               <span class="proof__spark"></span>
             </div>
-            <img class="proof__photo" src="assets/proof-2.webp" alt="Testimonial proof image" loading="lazy" />
-            <p class="proof__text">“Finally a system I can actually stick to.”</p>
+            <img class="proof__photo" src="assets/proof-2.webp" alt="Testimonial proof" loading="lazy" />
+            <p class="proof__text">“Finally a system I can stick to without burning out.”</p>
             <span class="proof__name">— Client B</span>
           </div>
 
@@ -242,32 +247,32 @@
               <span class="proof__tag">Lifestyle</span>
               <span class="proof__spark"></span>
             </div>
-            <img class="proof__photo" src="assets/proof-3.webp" alt="Lifestyle proof image" loading="lazy" />
-            <p class="proof__text">“I walk in like I belong everywhere now.”</p>
+            <img class="proof__photo" src="assets/proof-3.webp" alt="Lifestyle proof" loading="lazy" />
+            <p class="proof__text">“I walk in like I belong everywhere. That’s new.”</p>
             <span class="proof__name">— Client C</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VIBE GALLERY -->
-    <section class="section" id="gallery">
+    <!-- VIBE -->
+    <section class="section" id="vibe">
       <div class="container">
         <div class="section__head reveal">
           <h2>The vibe</h2>
-          <p>Use cinematic lifestyle shots that match the Miami Vice neon identity.</p>
+          <p>Miami Vice energy. Cinematic visuals. No cheesy stock clutter.</p>
         </div>
 
         <div class="gallery reveal">
-          <img src="assets/life-1.webp" alt="CyberFit lifestyle image 1" loading="lazy" />
-          <img src="assets/life-2.webp" alt="CyberFit lifestyle image 2" loading="lazy" />
-          <img src="assets/life-3.webp" alt="CyberFit lifestyle image 3" loading="lazy" />
+          <img src="assets/life-1.webp" alt="CyberFit vibe 1" loading="lazy" />
+          <img src="assets/life-2.webp" alt="CyberFit vibe 2" loading="lazy" />
+          <img src="assets/life-3.webp" alt="CyberFit vibe 3" loading="lazy" />
         </div>
 
         <div class="mockup reveal" data-tilt>
           <div>
-            <h3>Dashboard / Program mockup</h3>
-            <p class="muted">This single image instantly makes your offer feel real.</p>
+            <h3>Program mockup</h3>
+            <p class="muted">This single block makes your offer feel real instantly.</p>
           </div>
           <img class="mockup__img" src="assets/mockup-phone.webp" alt="CyberFit phone mockup" loading="lazy" />
         </div>
@@ -279,7 +284,7 @@
       <div class="container">
         <div class="section__head reveal">
           <h2>Choose your level</h2>
-          <p>Start simple. Upgrade for accountability when you’re ready.</p>
+          <p>Start simple. Upgrade for accountability.</p>
         </div>
 
         <div class="pricing">
@@ -289,9 +294,9 @@
               <p class="price__num">$49 <span>one-time</span></p>
             </div>
             <ul>
-              <li>4-day training template</li>
+              <li>4-day template</li>
               <li>Nutrition targets</li>
-              <li>Confidence quest checklist</li>
+              <li>Confidence checklist</li>
             </ul>
             <a class="btn btn--ghost" href="#top">Get Starter</a>
           </div>
@@ -303,10 +308,10 @@
               <p class="price__num">$149 <span>/ month</span></p>
             </div>
             <ul>
-              <li>Progressive plan</li>
+              <li>Progressive training</li>
               <li>Meal framework + swaps</li>
-              <li>Weekly check-ins (self)</li>
-              <li>Simple tracking dashboard</li>
+              <li>Weekly self check-ins</li>
+              <li>Tracking dashboard</li>
             </ul>
             <a class="btn btn--primary" href="#top"><span>Start Program</span><i class="btn__shine" aria-hidden="true"></i></a>
           </div>
@@ -343,11 +348,11 @@
           </details>
           <details class="reveal">
             <summary>What if I only have 3 days a week?</summary>
-            <p>Still works. We prioritize consistency and progression.</p>
+            <p>Still works. We’ll compress the plan and keep progression consistent.</p>
           </details>
           <details class="reveal">
             <summary>How does this build confidence?</summary>
-            <p>Execution creates self-trust. Body changes are the visible proof.</p>
+            <p>Execution creates self-trust. The physique changes become visible proof.</p>
           </details>
         </div>
       </div>
@@ -362,6 +367,7 @@
         <p class="muted">© <span id="year"></span> CyberFit. Built in Miami Vice mode.</p>
       </div>
     </footer>
+
   </main>
 
   <script src="script.js"></script>

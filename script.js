@@ -1,12 +1,17 @@
-// Year
+// year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Mobile menu (fixed + clean)
+// intro loading
+const intro = document.getElementById("intro");
+setTimeout(() => {
+  intro?.classList.add("is-done");
+}, 1200);
+
+// mobile menu
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
-
 if (menuBtn && mobileMenu) {
-  const closeMenu = () => {
+  const close = () => {
     menuBtn.setAttribute("aria-expanded", "false");
     mobileMenu.hidden = true;
   };
@@ -17,18 +22,16 @@ if (menuBtn && mobileMenu) {
     mobileMenu.hidden = open;
   });
 
-  mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-
-  // Close menu if user taps outside
+  mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", close));
   document.addEventListener("click", (e) => {
     const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
     if (!isOpen) return;
     const clickedInside = mobileMenu.contains(e.target) || menuBtn.contains(e.target);
-    if (!clickedInside) closeMenu();
+    if (!clickedInside) close();
   });
 }
 
-// Boost meter
+// meter boost
 const boostBtn = document.getElementById("boostBtn");
 const meterFill = document.getElementById("meterFill");
 const meterLabel = document.getElementById("meterLabel");
@@ -41,38 +44,19 @@ if (boostBtn && meterFill && meterLabel) {
   });
 }
 
-// Reveal on scroll
+// reveal on scroll
 const revealEls = document.querySelectorAll(".reveal");
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); });
 }, { threshold: 0.12 });
 revealEls.forEach(el => io.observe(el));
 
-// Parallax (disabled on small screens to prevent weird mobile behavior)
-const root = document.getElementById("parallaxRoot");
-let mouseX = 0, mouseY = 0;
-const isMobile = window.matchMedia("(max-width: 980px)").matches;
-
-if (root && !isMobile) {
-  window.addEventListener("mousemove", (e) => {
-    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-    mouseY = (e.clientY / window.innerHeight) * 2 - 1;
-  });
-
-  const tick = () => {
-    root.style.transform = `translate3d(${mouseX * -6}px, ${mouseY * -4}px, 0)`;
-    requestAnimationFrame(tick);
-  };
-  tick();
-}
-
-// 3D tilt (disabled on touch devices)
+// tilt (hover devices only)
 const canTilt = window.matchMedia("(hover: hover)").matches;
 if (canTilt) {
   document.querySelectorAll("[data-tilt]").forEach((el) => {
     const strength = 10;
     let rect;
-
     const onMove = (e) => {
       rect = rect || el.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
@@ -82,13 +66,21 @@ if (canTilt) {
       el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-1px)`;
     };
     const onLeave = () => { rect = null; el.style.transform = ""; };
-
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseleave", onLeave);
   });
 }
 
-// Particles canvas (lightweight)
+// FX toggle
+const fxBtn = document.getElementById("fxBtn");
+const fxRoot = document.getElementById("fxRoot");
+if (fxBtn && fxRoot) {
+  fxBtn.addEventListener("click", () => {
+    fxRoot.style.opacity = fxRoot.style.opacity === "0.35" ? "1" : "0.35";
+  });
+}
+
+// particles
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 let w, h, particles;
@@ -99,7 +91,8 @@ function resize() {
   h = canvas.height = window.innerHeight * dpr;
   canvas.style.width = window.innerWidth + "px";
   canvas.style.height = window.innerHeight + "px";
-  particles = makeParticles(isMobile ? 36 : 70, dpr);
+  const mobile = window.matchMedia("(max-width: 900px)").matches;
+  particles = makeParticles(mobile ? 34 : 70, dpr);
 }
 window.addEventListener("resize", resize);
 
@@ -124,7 +117,6 @@ function draw() {
   for (const p of particles) {
     p.x += p.vx;
     p.y += p.vy;
-
     if (p.x < -20) p.x = w + 20;
     if (p.x > w + 20) p.x = -20;
     if (p.y < -20) p.y = h + 20;
@@ -136,13 +128,12 @@ function draw() {
     ctx.fill();
   }
 
-  // lines
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       const a = particles[i], b = particles[j];
       const dx = a.x - b.x, dy = a.y - b.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      const max = (isMobile ? 120 : 140) * (devicePixelRatio || 1);
+      const max = (window.matchMedia("(max-width: 900px)").matches ? 120 : 140) * (devicePixelRatio || 1);
       if (dist < max) {
         const alpha = (1 - dist / max) * 0.10;
         ctx.strokeStyle = `rgba(24,242,255,${alpha})`;
@@ -160,12 +151,3 @@ function draw() {
 
 resize();
 draw();
-
-// FX toggle (optional)
-const themeBtn = document.getElementById("themeBtn");
-const fxRoot = document.getElementById("fxRoot");
-if (themeBtn && fxRoot) {
-  themeBtn.addEventListener("click", () => {
-    fxRoot.style.opacity = fxRoot.style.opacity === "0.35" ? "1" : "0.35";
-  });
-}
