@@ -718,3 +718,110 @@ img{ max-width:100%; height:auto; display:block; }
 @media (prefers-reduced-motion: reduce){
   *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
 }
+
+.coverCard__media {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.sysBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+}
+
+.sysBadge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.9;
+}
+
+.miniStatus {
+  margin-top: 10px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  opacity: 0.9;
+  font-size: 13px;
+}
+
+.levelPill {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+}
+
+.levelPill__label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  opacity: 0.8;
+}
+
+.levelPill__value {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.hud__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+}
+
+.meter__bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.meter__glow {
+  position: absolute;
+  inset: -30px;
+  filter: blur(18px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.microCopy {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.75;
+}

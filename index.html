@@ -116,40 +116,86 @@
           </div>
         </div>
 
-        <!-- COVER CARD -->
-        <div class="hero__right reveal">
-          <div class="coverCard" data-tilt>
-            <div class="coverCard__top">
-              <span class="live"><span class="live__dot"></span> LIVE</span>
-            </div>
+ <!-- COVER CARD -->
+<div class="hero__right reveal">
+  <div class="coverCard coverCard--pro" data-tilt>
+    <div class="coverCard__top">
+      <div class="badgeRow">
+        <span class="live">
+          <span class="live__dot"></span> LIVE
+        </span>
 
-            <img class="coverCard__img" src="assets/hero-poster.png" alt="CyberFit Miami Vice Hero Poster" loading="eager">
+        <span class="sysBadge">
+          <span class="sysBadge__dot"></span> SYSTEM ONLINE
+        </span>
+      </div>
 
-            <div class="coverCard__bottom">
-              <div class="meter">
-                <div class="meter__row">
-                  <span>Consistency</span>
-                  <strong id="meterLabel">0%</strong>
-                </div>
-                <div class="meter__bar">
-                  <div class="meter__fill" id="meterFill" style="width:0%"></div>
-                </div>
-                <p class="meter__hint">Small wins → swagger becomes permanent.</p>
+      <div class="miniStatus">
+        <span class="miniStatus__label">Mode:</span>
+        <strong class="miniStatus__value">Focus + Cut</strong>
+      </div>
+    </div>
 
-                <div class="meter__actions">
-                  <button class="btn btn--ghost btn--small" id="boostBtn" type="button">Boost +5%</button>
-                  <a class="btn btn--primary btn--small" href="#programs"><span>Unlock</span><i class="btn__shine" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            </div>
+    <div class="coverCard__media">
+      <img
+        class="coverCard__img"
+        src="assets/hero-poster.png"
+        alt="CyberFit Miami Vice Hero Poster"
+        loading="eager"
+      />
+
+      <div class="levelPill" aria-hidden="true">
+        <span class="levelPill__label">LEVEL</span>
+        <strong class="levelPill__value" id="levelValue">0</strong>
+      </div>
+    </div>
+
+    <div class="coverCard__bottom">
+      <div class="hud">
+        <div class="hud__chips" aria-label="Progress metrics">
+          <span class="chip">⚡ Energy <strong id="energyVal">0</strong></span>
+          <span class="chip">🧠 Focus <strong id="focusVal">0</strong></span>
+          <span class="chip">🕶️ Confidence <strong id="confVal">0</strong></span>
+        </div>
+
+        <div class="meter">
+          <div class="meter__row">
+            <span>Consistency</span>
+            <strong id="meterLabel">0%</strong>
           </div>
 
-          <div class="float float--a" aria-hidden="true"></div>
-          <div class="float float--b" aria-hidden="true"></div>
-          <div class="float float--c" aria-hidden="true"></div>
+          <div class="meter__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="meter__fill" id="meterFill" style="width:0%"></div>
+            <div class="meter__glow" aria-hidden="true"></div>
+          </div>
+
+          <p class="meter__hint">
+            Small wins stack. Your presence upgrades automatically.
+          </p>
+
+          <div class="meter__actions">
+            <button class="btn btn--ghost btn--small" id="boostBtn" type="button">
+              Boost +5%
+            </button>
+
+            <a class="btn btn--primary btn--small" href="#programs">
+              <span>Unlock the System</span>
+              <i class="btn__shine" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="microCopy">
+            Built for men in tech who want a body that matches their ambition.
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+
+  <div class="float float--a" aria-hidden="true"></div>
+  <div class="float float--b" aria-hidden="true"></div>
+  <div class="float float--c" aria-hidden="true"></div>
+</div>
 
     <!-- SYSTEM -->
     <section class="section" id="system">
