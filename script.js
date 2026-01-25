@@ -4,6 +4,8 @@
 const $ = (id) => document.getElementById(id);
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 
+console.log("CyberFit JS loaded ✅");
+
 // ==============================
 // YEAR
 // ==============================
@@ -90,17 +92,6 @@ if (canTilt) {
 }
 
 // ==============================
-// FX TOGGLE
-// ==============================
-const fxBtn = $("fxBtn");
-const fxRoot = $("fxRoot");
-if (fxBtn && fxRoot) {
-  fxBtn.addEventListener("click", () => {
-    fxRoot.style.opacity = fxRoot.style.opacity === "0.35" ? "1" : "0.35";
-  });
-}
-
-// ==============================
 // PARTICLES (CANVAS)
 // ==============================
 const canvas = $("particles");
@@ -160,10 +151,8 @@ function draw() {
 
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
-      const a = particles[i],
-        b = particles[j];
-      const dx = a.x - b.x,
-        dy = a.y - b.y;
+      const a = particles[i], b = particles[j];
+      const dx = a.x - b.x, dy = a.y - b.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
       if (dist < max) {
@@ -190,10 +179,10 @@ if (canvas && ctx) {
 // ==============================
 // HUD METER (PROGRESS + LEVEL + CHIPS)
 // ==============================
-// Saves progress so it sticks on refresh (psychological "I already started" effect)
 const meterFill = $("meterFill");
 const meterLabel = $("meterLabel");
 const boostBtn = $("boostBtn");
+const meterGlow = document.querySelector(".meter__glow");
 
 const levelValue = $("levelValue");
 const energyVal = $("energyVal");
@@ -203,7 +192,6 @@ const confVal = $("confVal");
 const progressKey = "cyberfit_progress";
 let progress = clamp(parseInt(localStorage.getItem(progressKey) || "0", 10), 0, 100);
 
-// Smooth animate meter fills (feels premium)
 let animFrame = null;
 function animateTo(target) {
   if (!meterFill || !meterLabel) return;
@@ -211,23 +199,19 @@ function animateTo(target) {
   cancelAnimationFrame(animFrame);
   const start = parseInt(meterLabel.textContent.replace("%", "") || "0", 10);
   const end = clamp(target, 0, 100);
-  const duration = 380; // ms
+  const duration = 420;
   const t0 = performance.now();
 
   const step = (t) => {
     const p = clamp((t - t0) / duration, 0, 1);
-    // easeOutCubic
     const eased = 1 - Math.pow(1 - p, 3);
     const val = Math.round(start + (end - start) * eased);
 
     meterFill.style.width = `${val}%`;
     meterLabel.textContent = `${val}%`;
 
-    // aria
-    const bar = meterFill.parentElement;
-    bar?.setAttribute("aria-valuenow", String(val));
+    meterFill.parentElement?.setAttribute("aria-valuenow", String(val));
 
-    // Derived HUD values
     const lvl = Math.floor(val / 10);
     if (levelValue) levelValue.textContent = String(lvl);
 
@@ -238,6 +222,12 @@ function animateTo(target) {
     if (energyVal) energyVal.textContent = String(energy);
     if (focusVal) focusVal.textContent = String(focus);
     if (confVal) confVal.textContent = String(conf);
+
+    // move the glow so you SEE it change
+    if (meterGlow) {
+      const shift = (val / 100) * 80; // 0..80
+      meterGlow.style.transform = `translateX(${shift - 40}%)`;
+    }
 
     if (p < 1) animFrame = requestAnimationFrame(step);
   };
@@ -255,7 +245,6 @@ if (boostBtn && meterFill && meterLabel) {
     localStorage.setItem(progressKey, String(progress));
     renderProgress();
 
-    // Tiny micro-reward (optional): button text pulse
     boostBtn.classList.add("is-boosted");
     setTimeout(() => boostBtn.classList.remove("is-boosted"), 220);
   });
