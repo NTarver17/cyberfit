@@ -1,483 +1,692 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CyberFit — Miami Vice Mode</title>
-  <meta name="description" content="CyberFit: a cinematic fitness + confidence system for men in tech. Miami Vice energy. Studio-level design." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyber Fit - Premium Online Fitness Training. Transform your body with cutting-edge digital workouts and personalized coaching.">
+    <title>Cyber Fit | Premium Online Training</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- FX BACKDROP -->
-  <div class="fx" id="fxRoot" aria-hidden="true">
-    <div class="fx__gradient"></div>
-    <div class="fx__grid"></div>
-    <div class="fx__scan"></div>
-    <div class="fx__noise"></div>
-    <canvas class="fx__particles" id="particles"></canvas>
-    <div class="fx__vignette"></div>
-  </div>
-
-  <!-- LOADING INTRO -->
-  <div class="intro" id="intro" aria-hidden="true">
-    <div class="intro__card">
-      <div class="intro__logo">
-        <span class="brand__mark"></span>
-        <span class="intro__word">CyberFit</span>
-      </div>
-      <p class="intro__sub">MIAMI VICE MODE</p>
-      <div class="intro__bar"><span></span></div>
-    </div>
-  </div>
-
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <a class="brand" href="#top">
-        <span class="brand__mark" aria-hidden="true"></span>
-        <span class="brand__text">CyberFit</span>
-        <span class="brand__chip">BY NICK TARVER</span>
-      </a>
-
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#system">System</a>
-        <a href="#proof">Proof</a>
-        <a href="#vibe">Vibe</a>
-        <a href="#programs">Programs</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-
-      <button class="burger" id="menuBtn" type="button"
-        aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <span class="loader-text">CYBER FIT</span>
+            <div class="loader-bar"></div>
+        </div>
     </div>
 
-    <div class="mobile" id="mobileMenu" hidden>
-      <a href="#system">System</a>
-      <a href="#proof">Proof</a>
-      <a href="#vibe">Vibe</a>
-      <a href="#programs">Programs</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn--primary" href="#programs"><span>Start CyberFit</span><i class="btn__shine" aria-hidden="true"></i></a>
-    </div>
-  </header>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
 
-  <main id="top">
-
-    <!-- HERO -->
-    <section class="hero hero--cinematic">
-      <div class="container hero__inner">
-
-        <!-- LEFT -->
-        <div class="hero__left reveal">
-          <p class="kicker">
-            <span class="kicker__dot"></span>
-            <span class="kicker__text">BUILD THE BODY • UPGRADE THE PRESENCE</span>
-          </p>
-
-          <h1 class="hero__title">
-            Built for <span class="grad">Men in Tech</span>
-            <span class="subgrad">Who Are Tired of Feeling Invisible.</span>
-          </h1>
-
-          <p class="hero__sub">
-            A system designed for developers, IT pros, and desk-bound men to lose fat, build an athletic body,
-            and carry real-world confidence — without living in the gym.
-          </p>
-
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="#programs">
-              <span>Start the Program</span><i class="btn__shine" aria-hidden="true"></i>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-cyber">CYBER</span>
+                <span class="logo-fit">FIT</span>
             </a>
-            <a class="btn btn--ghost" href="#system">See the System</a>
-          </div>
-
-          <div class="statsrow">
-            <div class="statcard reveal" data-tilt>
-              <span class="statcard__label">Sessions</span>
-              <span class="statcard__value">4 / week</span>
-              <span class="statcard__meta">30–45 minutes</span>
-            </div>
-            <div class="statcard reveal" data-tilt>
-              <span class="statcard__label">Steps</span>
-              <span class="statcard__value">8–12k</span>
-              <span class="statcard__meta">daily baseline</span>
-            </div>
-            <div class="statcard reveal" data-tilt>
-              <span class="statcard__label">Protein</span>
-              <span class="statcard__value">0.8–1g/lb</span>
-              <span class="statcard__meta">simple target</span>
-            </div>
-          </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#programs" class="nav-link">Programs</a></li>
+                <li><a href="#trainers" class="nav-link">Trainers</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#testimonials" class="nav-link">Results</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#pricing" class="nav-cta">Start Training</a>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+    </nav>
 
-        <!-- RIGHT / COVER CARD -->
-        <div class="hero__right reveal">
-          <div class="coverCard coverCard--pro" data-tilt>
-            <div class="coverCard__top">
-              <div class="badgeRow">
-                <span class="live">
-                  <span class="live__dot"></span> LIVE
-                </span>
+   <!-- Hero Section -->
+<section id="home" class="hero">
+    <!-- Background Image -->
+    <div class="hero-bg">
+        <img src="assets/life-3.png" alt="Cyber Fit" class="hero-bg-image">
+        <div class="hero-overlay"></div>
+    </div>
 
-                <span class="sysBadge">
-                  <span class="sysBadge__dot"></span> SYSTEM ONLINE
-                </span>
-              </div>
+    <!-- Hero Content -->
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            THE FUTURE OF FITNESS
+        </div>
+        <h1 class="hero-title">
+            <span class="title-line">UPGRADE YOUR</span>
+            <span class="title-line gradient-text">BODY & MIND</span>
+        </h1>
+        <p class="hero-subtitle">
+            Elite online fitness training with world-class coaches. 
+            Personalized programs that deliver real results.
+        </p>
+        <div class="hero-ctas">
+            <a href="#pricing" class="btn btn-primary btn-large">
+                Start Your Journey
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
 
-              <div class="miniStatus">
-                <span class="miniStatus__label">Mode:</span>
-                <strong class="miniStatus__value">Focus + Cut</strong>
-              </div>
-            </div>
-
-            <div class="coverCard__media">
-              <img class="coverCard__img"
-                   src="assets/hero-poster.png"
-                   alt="CyberFit Miami Vice Hero Poster"
-                   loading="eager" />
-
-              <div class="mediaOverlay" aria-hidden="true"></div>
-
-              <div class="levelPill" aria-hidden="true">
-                <span class="levelPill__label">LEVEL</span>
-                <strong class="levelPill__value" id="levelValue">0</strong>
-              </div>
-            </div>
-
-            <div class="coverCard__bottom">
-              <div class="hud">
-                <div class="hud__chips" aria-label="Progress metrics">
-                  <span class="chip">⚡ Energy <strong id="energyVal">0</strong></span>
-                  <span class="chip">🧠 Focus <strong id="focusVal">0</strong></span>
-                  <span class="chip">🕶️ Confidence <strong id="confVal">0</strong></span>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>AI-Powered Plans</h3>
+                    <p>Personalized training programs that adapt to your progress in real-time.</p>
                 </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>24/7 Access</h3>
+                    <p>Train anytime, anywhere. Your gym is wherever you are.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Expert Coaches</h3>
+                    <p>Direct access to certified trainers for guidance and motivation.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Track Progress</h3>
+                    <p>Advanced analytics to monitor every rep, set, and milestone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="meter">
-                  <div class="meter__row">
-                    <span>Consistency</span>
-                    <strong id="meterLabel">0%</strong>
-                  </div>
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">TRAINING PROGRAMS</span>
+                <h2 class="section-title">Choose Your <span class="gradient-text">Path</span></h2>
+                <p class="section-subtitle">From beginner to elite athlete, we have the perfect program for your goals.</p>
+            </div>
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-card" data-aos="fade-up">
+                    <div class="program-image">
+                        <div class="placeholder-image">
+                            <span>STRENGTH IMAGE</span>
+                        </div>
+                        <div class="program-overlay"></div>
+                        <span class="program-tag">POPULAR</span>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-meta">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 12 Weeks</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Intermediate</span>
+                        </div>
+                        <h3>Strength Protocol</h3>
+                        <p>Build raw power and functional strength with progressive overload training.</p>
+                        <ul class="program-features">
+                            <li>48 Structured Workouts</li>
+                            <li>Nutrition Guidelines</li>
+                            <li>Weekly Check-ins</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <!-- Program 2 -->
+                <div class="program-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-image">
+                        <div class="placeholder-image">
+                            <span>HIIT IMAGE</span>
+                        </div>
+                        <div class="program-overlay"></div>
+                        <span class="program-tag featured-tag">BEST VALUE</span>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-meta">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 Weeks</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> All Levels</span>
+                        </div>
+                        <h3>Shred Program</h3>
+                        <p>High-intensity interval training designed to torch fat and boost metabolism.</p>
+                        <ul class="program-features">
+                            <li>56 HIIT Sessions</li>
+                            <li>Meal Plans Included</li>
+                            <li>Daily Coaching</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Start Now</a>
+                    </div>
+                </div>
+                <!-- Program 3 -->
+                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-image">
+                        <div class="placeholder-image">
+                            <span>ATHLETIC IMAGE</span>
+                        </div>
+                        <div class="program-overlay"></div>
+                        <span class="program-tag">ADVANCED</span>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-meta">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 16 Weeks</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Advanced</span>
+                        </div>
+                        <h3>Elite Athlete</h3>
+                        <p>Competition-level training for those who demand peak performance.</p>
+                        <ul class="program-features">
+                            <li>Custom Programming</li>
+                            <li>1-on-1 Coaching</li>
+                            <li>Recovery Protocols</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                  <div class="meter__bar" role="progressbar"
-                       aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                    <div class="meter__fill" id="meterFill" style="width:0%"></div>
-                    <div class="meter__glow" aria-hidden="true"></div>
-                  </div>
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images" data-aos="fade-right">
+                    <div class="about-image-main">
+                        <div class="placeholder-image large">
+                            <span>MAIN ABOUT IMAGE</span>
+                        </div>
+                    </div>
+                    <div class="about-image-secondary">
+                        <div class="placeholder-image">
+                            <span>SECONDARY IMAGE</span>
+                        </div>
+                    </div>
+                    <div class="about-stats-card">
+                        <span class="big-number">10+</span>
+                        <span>Years of Excellence</span>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-tag">OUR STORY</span>
+                    <h2 class="section-title">Where Technology Meets <span class="gradient-text">Human Potential</span></h2>
+                    <p class="about-text">Cyber Fit was born from a simple belief: everyone deserves access to world-class training, regardless of location or schedule. We've combined cutting-edge technology with proven training methodologies to create the ultimate online fitness experience.</p>
+                    <p class="about-text">Our team of elite coaches, sports scientists, and tech innovators work together to deliver personalized programs that adapt to your unique body, goals, and lifestyle.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="check-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span>Science-backed methodologies</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="check-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span>Certified expert trainers</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="check-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span>Community of 15,000+ athletes</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="check-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span>Results guaranteed or money back</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Join The Movement</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                  <p class="meter__hint">
-                    Small wins stack. Your presence upgrades automatically.
-                  </p>
+    <!-- Trainers Section -->
+    <section class="trainers" id="trainers">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">MEET THE TEAM</span>
+                <h2 class="section-title">Elite <span class="gradient-text">Coaches</span></h2>
+                <p class="section-subtitle">Learn from the best in the industry. Our trainers have helped thousands achieve their goals.</p>
+            </div>
+            <div class="trainers-grid">
+                <!-- Trainer 1 -->
+                <div class="trainer-card" data-aos="fade-up">
+                    <div class="trainer-image">
+                        <div class="placeholder-image trainer">
+                            <span>TRAINER 1 PHOTO</span>
+                        </div>
+                        <div class="trainer-overlay">
+                            <div class="trainer-socials">
+                                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Marcus Steel</h3>
+                        <span class="trainer-role">Strength & Conditioning</span>
+                        <p>Former Olympic weightlifter with 15+ years of coaching experience.</p>
+                    </div>
+                </div>
+                <!-- Trainer 2 -->
+                <div class="trainer-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="trainer-image">
+                        <div class="placeholder-image trainer">
+                            <span>TRAINER 2 PHOTO</span>
+                        </div>
+                        <div class="trainer-overlay">
+                            <div class="trainer-socials">
+                                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Sarah Chen</h3>
+                        <span class="trainer-role">HIIT & Cardio Specialist</span>
+                        <p>Certified personal trainer and nutrition coach with a passion for transformation.</p>
+                    </div>
+                </div>
+                <!-- Trainer 3 -->
+                <div class="trainer-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="trainer-image">
+                        <div class="placeholder-image trainer">
+                            <span>TRAINER 3 PHOTO</span>
+                        </div>
+                        <div class="trainer-overlay">
+                            <div class="trainer-socials">
+                                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <h3>David Rodriguez</h3>
+                        <span class="trainer-role">Athletic Performance</span>
+                        <p>Sports scientist who has trained professional athletes across multiple disciplines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                  <div class="meter__actions">
-                    <button class="btn btn--ghost btn--small" id="boostBtn" type="button">
-                      Boost +5%
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">MEMBERSHIP PLANS</span>
+                <h2 class="section-title">Invest In <span class="gradient-text">Yourself</span></h2>
+                <p class="section-subtitle">Choose the plan that fits your goals. All plans include a 7-day free trial.</p>
+            </div>
+            <div class="pricing-toggle">
+                <span class="toggle-label active" data-period="monthly">Monthly</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="pricing-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label" data-period="yearly">Yearly <span class="save-badge">Save 20%</span></span>
+            </div>
+            <div class="pricing-grid">
+                                <!-- Starter Plan -->
+                <div class="pricing-card" data-aos="fade-up">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <p>Perfect for beginners ready to start their journey.</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">$</span>
+                        <span class="amount" data-monthly="29" data-yearly="23">29</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Access to 100+ workouts</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Basic progress tracking</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Community access</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Mobile app</li>
+                        <li class="disabled"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Personal coaching</li>
+                        <li class="disabled"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Custom meal plans</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline full-width">Start Free Trial</a>
+                </div>
+                <!-- Pro Plan -->
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <p>For dedicated athletes seeking serious results.</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">$</span>
+                        <span class="amount" data-monthly="79" data-yearly="63">79</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Access to 500+ workouts</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Advanced analytics</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Weekly group coaching</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Custom workout plans</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Nutrition guidelines</li>
+                        <li class="disabled"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> 1-on-1 coaching</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary full-width">Start Free Trial</a>
+                </div>
+                <!-- Elite Plan -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-header">
+                        <h3>Elite</h3>
+                        <p>The ultimate transformation experience.</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="currency">$</span>
+                        <span class="amount" data-monthly="149" data-yearly="119">149</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Everything in Pro</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1-on-1 personal coaching</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Custom meal plans</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Priority support</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Exclusive workshops</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Body composition analysis</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline full-width">Start Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">SUCCESS STORIES</span>
+                <h2 class="section-title">Real People. <span class="gradient-text">Real Results.</span></h2>
+                <p class="section-subtitle">Join thousands who have transformed their lives with Cyber Fit.</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <p>"Cyber Fit completely changed my approach to fitness. The personalized programs and constant support helped me lose 45 lbs in 6 months. I've never felt stronger or more confident."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <div class="placeholder-avatar">JM</div>
+                            </div>
+                            <div class="author-info">
+                                <h4>James Mitchell</h4>
+                                <span>Lost 45 lbs in 6 months</span>
+                            </div>
+                        </div>
+                        <div class="before-after">
+                            <div class="ba-item">
+                                <div class="placeholder-image small"><span>BEFORE</span></div>
+                            </div>
+                            <div class="ba-item">
+                                <div class="placeholder-image small"><span>AFTER</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <p>"As a busy mom of three, I never thought I'd have time for fitness. Cyber Fit's flexible programs fit perfectly into my schedule. I'm in the best shape of my life at 42!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <div class="placeholder-avatar">LK</div>
+                            </div>
+                            <div class="author-info">
+                                <h4>Lisa Kowalski</h4>
+                                <span>Gained strength & energy</span>
+                            </div>
+                        </div>
+                        <div class="before-after">
+                            <div class="ba-item">
+                                <div class="placeholder-image small"><span>BEFORE</span></div>
+                            </div>
+                            <div class="ba-item">
+                                <div class="placeholder-image small"><span>AFTER</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">★★★★★</div>
+                            <p>"The Elite coaching program is worth every penny. My trainer pushed me to levels I didn't think possible. I competed in my first bodybuilding show thanks to Cyber Fit."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <div class="placeholder-avatar">RT</div>
+                            </div>
+                            <div class="author-info">
+                                <h4>Ryan Torres</h4>
+                                <span>Competition ready</span>
+                            </div>
+                        </div>
+                        <div class="before-after">
+                            <div class="ba-item">
+                                <div class="placeholder-image small"><span>BEFORE</span></div>
+                            </div>
+                            <div class="ba-item">
+                                <div class="placeholder-image small"><span>AFTER</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev" id="prev-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
                     </button>
+                    <div class="slider-dots" id="slider-dots"></div>
+                    <button class="slider-btn next" id="next-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <a class="btn btn--primary btn--small" href="#programs">
-                      <span>Unlock the System</span>
-                      <i class="btn__shine" aria-hidden="true"></i>
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-bg">
+            <div class="placeholder-image cta-placeholder"></div>
+            <div class="cta-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2>Ready to Transform Your Life?</h2>
+                <p>Join 15,000+ members who chose to become the best version of themselves. Your journey starts with a single step.</p>
+                <div class="cta-buttons">
+                    <a href="#pricing" class="btn btn-primary btn-large">
+                        <span>Start Your Free Trial</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                  </div>
-
-                  <div class="microCopy">
-                    Built for men in tech who want a body that matches their ambition.
-                  </div>
+                    <a href="#contact" class="btn btn-ghost btn-large">Talk to a Coach</a>
                 </div>
-              </div>
+                <p class="cta-note">No credit card required • Cancel anytime • 7-day free trial</p>
             </div>
-          </div>
-
-          <div class="float float--a" aria-hidden="true"></div>
-          <div class="float float--b" aria-hidden="true"></div>
-          <div class="float float--c" aria-hidden="true"></div>
         </div>
-
-      </div>
     </section>
 
-    <!-- SYSTEM -->
-    <section class="section" id="system">
-      <div class="container">
-        <div class="section__head reveal">
-          <h2>One system. Zero chaos.</h2>
-          <p>Train, fuel, and build presence — in a way you can actually sustain.</p>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <span class="section-tag">GET IN TOUCH</span>
+                    <h2 class="section-title">Let's Start Your <span class="gradient-text">Journey</span></h2>
+                    <p>Have questions? Our team is here to help you find the perfect program for your goals.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="method-details">
+                                <h4>Email Us</h4>
+                                <a href="mailto:hello@cyberfit.com">hello@cyberfit.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div class="method-details">
+                                <h4>Location</h4>
+                                <span>Available Worldwide Online</span>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="method-details">
+                                <h4>Support Hours</h4>
+                                <span>24/7 for Elite Members</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                        <a href="#" class="social-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="#" class="social-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+                        <a href="#" class="social-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper" data-aos="fade-left">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal">Fitness Goal</label>
+                            <select id="goal" name="goal" required>
+                                <option value="" disabled selected>Select your primary goal</option>
+                                <option value="weight-loss">Weight Loss</option>
+                                <option value="muscle-gain">Build Muscle</option>
+                                <option value="strength">Increase Strength</option>
+                                <option value="endurance">Improve Endurance</option>
+                                <option value="general">General Fitness</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell Us About Yourself</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Share your fitness background and goals..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="cards3">
-          <article class="bigcard reveal" data-tilt>
-            <h3>01 — Train</h3>
-            <p>Full-body strength + athletic finishers. You don’t just look better — you move better.</p>
-            <ul>
-              <li>Progressive overload</li>
-              <li>Short finishers</li>
-              <li>Minimum effective dose</li>
-            </ul>
-          </article>
-
-          <article class="bigcard reveal" data-tilt>
-            <h3>02 — Fuel</h3>
-            <p>Protein-first targets + repeatable meals. No weird diets.</p>
-            <ul>
-              <li>Simple calorie range</li>
-              <li>Protein anchor</li>
-              <li>80/20 consistency</li>
-            </ul>
-          </article>
-
-          <article class="bigcard reveal" data-tilt>
-            <h3>03 — Presence</h3>
-            <p>Confidence reps that change posture, voice, and aura in real life.</p>
-            <ul>
-              <li>Posture + eye contact</li>
-              <li>Voice pace + clarity</li>
-              <li>Micro discomfort reps</li>
-            </ul>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <!-- PROOF -->
-    <section class="section section--alt" id="proof">
-      <div class="container">
-        <div class="section__head reveal">
-          <h2>Proof where people hesitate</h2>
-        </div>
-
-        <div class="proofgrid">
-          <div class="proof reveal" data-tilt>
-            <div class="proof__top">
-              <span class="proof__tag">Testimonial #1</span>
-              <span class="proof__spark"></span>
-            </div>
-            <img class="proof__photo" src="assets/proof-1.png" alt="Transformation proof" loading="lazy" />
-            <p class="proof__text">“I’ve tried lifting on and off since college, but I never stayed consistent. With CyberFit, everything finally made sense. The workouts were short enough that I didn’t skip them, and the nutrition wasn’t extreme. I dropped 18 pounds without feeling burnt out, and for the first time I actually trust myself to stay in shape.”</p>
-            <span class="proof__name">— Alex, 29</span>
-          </div>
-
-          <div class="proof reveal" data-tilt>
-            <div class="proof__top">
-              <span class="proof__tag">Testimonial #2</span>
-              <span class="proof__spark"></span>
-            </div>
-            <img class="proof__photo" src="assets/proof-2.png" alt="Testimonial proof" loading="lazy" />
-            <p class="proof__text">“I work full time and didn’t want my life to revolve around the gym. This was different. I trained 4 days a week, followed simple protein targets, and the rest just… worked. I lost 22 pounds, my clothes fit better, and people started noticing without me saying anything.”</p>
-            <span class="proof__name">— Marcus, 27</span>
-          </div>
-
-          <div class="proof reveal" data-tilt>
-            <div class="proof__top">
-              <span class="proof__tag">Testimonial #3</span>
-              <span class="proof__spark"></span>
-            </div>
-            <img class="proof__photo" src="assets/proof-3.png" alt="Lifestyle proof" loading="lazy" />
-            <p class="proof__text">“The biggest change wasn’t just the weight — it was confidence. I leaned out, my shoulders got wider, and my posture changed. I walk into rooms differently now. CyberFit wasn’t just ‘do this workout’ — it actually taught me how to build momentum instead of restarting every month.”</p>
-            <span class="proof__name">— Daniel, 27</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIBE -->
-    <section class="section" id="vibe">
-      <div class="container">
-        <div class="section__head reveal">
-          <h2>The vibe</h2>
-        </div>
-
-        <div class="gallery reveal">
-          <img src="assets/life-1.png" alt="CyberFit vibe 1" loading="lazy" />
-          <img src="assets/life-2.png" alt="CyberFit vibe 2" loading="lazy" />
-          <img src="assets/life-3.png" alt="CyberFit vibe 3" loading="lazy" />
-        </div>
-
-        <div class="mockup reveal" data-tilt>
-          <div class="featuresPanel">
-            <div class="featuresPanel__top">
-              <p class="kicker kicker--tight">
-                <span class="kicker__dot"></span>
-                <span class="kicker__text">YOUR PLAN • DELIVERED DAILY • NO GUESSING</span>
-              </p>
-
-              <h3 class="featuresPanel__title">
-                Your next workout is <span class="grad">ready</span>.
-                Your results become automatic.
-              </h3>
-
-              <p class="featuresPanel__lead">
-                CyberFit removes the chaos. You open the app and it tells you exactly what to do —
-                so you stay consistent, get lean, and build confidence without overthinking.
-              </p>
-            </div>
-
-            <div class="featuresGrid">
-              <div class="featureCard">
-                <div class="featureCard__icon">⚡</div>
-                <div class="featureCard__body">
-                  <div class="featureCard__title">Daily “Do This Next” Plan</div>
-                  <div class="featureCard__text">Never wonder what to train. The day is mapped for you.</div>
-                </div>
-              </div>
-
-              <div class="featureCard">
-                <div class="featureCard__icon">📈</div>
-                <div class="featureCard__body">
-                  <div class="featureCard__title">Progressive Overload Built In</div>
-                  <div class="featureCard__text">Weights/reps progress automatically so you keep improving.</div>
-                </div>
-              </div>
-
-              <div class="featureCard">
-                <div class="featureCard__icon">🍽️</div>
-                <div class="featureCard__body">
-                  <div class="featureCard__title">Nutrition Targets (Not a Diet)</div>
-                  <div class="featureCard__text">Protein + calories made simple — easy meals, real life.</div>
-                </div>
-              </div>
-
-              <div class="featureCard">
-                <div class="featureCard__icon">✅</div>
-                <div class="featureCard__body">
-                  <div class="featureCard__title">Accountability Check-Ins</div>
-                  <div class="featureCard__text">Quick weekly check-ins so you don’t fall off.</div>
-                </div>
-              </div>
-
-              <div class="featureCard featureCard--wide">
-                <div class="featureCard__body">
-                  <div class="featureCard__title">What this does for you</div>
-                  <ul class="featureList">
-                    <li><span class="check">✓</span>Consistency becomes the default (no restarting)</li>
-                    <li><span class="check">✓</span>You get lean while keeping muscle</li>
-                    <li><span class="check">✓</span>Confidence shows up in posture + presence</li>
-                  </ul>
-
-                  <div class="featuresCta">
-                    <a class="btn btn--primary btn--small" href="#programs">
-                      <span>Start CyberFit</span><i class="btn__shine" aria-hidden="true"></i>
-                    </a>
-                    <a class="btn btn--ghost btn--small" href="#system">See the System</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="miniOutcome">
-              <div class="miniOutcome__pill"><span class="dot"></span> Less thinking</div>
-              <div class="miniOutcome__pill"><span class="dot dot--cyan"></span> More reps</div>
-              <div class="miniOutcome__pill"><span class="dot dot--violet"></span> Better results</div>
-            </div>
-          </div>
-
-          <div class="mockup__media">
-            <img class="mockup__img" src="assets/mockup-phone.png" alt="CyberFit app mockup phone" loading="lazy" />
-            <div class="mockGlow" aria-hidden="true"></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROGRAMS -->
-    <section class="section section--alt" id="programs">
-      <div class="container">
-        <div class="section__head reveal">
-          <h2>Choose your level</h2>
-          <p>Start simple. Upgrade for accountability.</p>
-        </div>
-
-        <div class="pricing">
-          <div class="price reveal" data-tilt>
-            <div class="price__head">
-              <h3>Starter</h3>
-              <p class="price__num">$49 <span>one-time</span></p>
-            </div>
-            <ul>
-              <li>4-day template</li>
-              <li>Nutrition targets</li>
-              <li>Confidence checklist</li>
-            </ul>
-            <a class="btn btn--ghost" href="#top">Get Starter</a>
-          </div>
-
-          <div class="price price--featured reveal" data-tilt>
-            <div class="badge">MOST POPULAR</div>
-            <div class="price__head">
-              <h3>Program</h3>
-              <p class="price__num">$149 <span>/ month</span></p>
-            </div>
-            <ul>
-              <li>Progressive training</li>
-              <li>Meal framework + swaps</li>
-              <li>Weekly self check-ins</li>
-              <li>Tracking dashboard</li>
-            </ul>
-            <a class="btn btn--primary" href="#top"><span>Start Program</span><i class="btn__shine" aria-hidden="true"></i></a>
-          </div>
-
-          <div class="price reveal" data-tilt>
-            <div class="price__head">
-              <h3>Elite</h3>
-              <p class="price__num">$399 <span>/ month</span></p>
-            </div>
-            <ul>
-              <li>Personalized programming</li>
-              <li>Weekly feedback</li>
-              <li>Accountability</li>
-              <li>Priority support</li>
-            </ul>
-            <a class="btn btn--ghost" href="#top">Apply for Elite</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section__head reveal">
-          <h2>FAQ</h2>
-          <p>Clear answers. No overthinking.</p>
-        </div>
-
-        <div class="faq">
-          <details class="reveal">
-            <summary>Do I need to be in shape already?</summary>
-            <p>No. You start where you are. The system is built for momentum.</p>
-          </details>
-          <details class="reveal">
-            <summary>What if I only have 3 days a week?</summary>
-            <p>Still works. We’ll compress the plan and keep progression consistent.</p>
-          </details>
-          <details class="reveal">
-            <summary>How does this build confidence?</summary>
-            <p>Execution creates self-trust. The physique changes become visible proof.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
+    <!-- Footer -->
     <footer class="footer">
-      <div class="container footer__inner">
-        <div class="brand brand--small">
-          <span class="brand__mark" aria-hidden="true"></span>
-          <span class="brand__text">CyberFit</span>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-cyber">CYBER</span>
+                        <span class="logo-fit">FIT</span>
+                    </a>
+                    <p>Transforming lives through cutting-edge online fitness training. Your body. Your rules. Our expertise.</p>
+                    <div class="footer-socials">
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#trainers">Trainers</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#testimonials">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#">Strength Protocol</a></li>
+                        <li><a href="#">Shred Program</a></li>
+                        <li><a href="#">Elite Athlete</a></li>
+                        <li><a href="#">Beginner Basics</a></li>
+                        <li><a href="#">Custom Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cyber Fit. All rights reserved. Built for champions.</p>
+            </div>
         </div>
-        <p class="muted">© <span id="year"></span> CyberFit. Built in Miami Vice mode.</p>
-      </div>
     </footer>
 
-  </main>
+    <!-- Notification Container -->
+    <div class="notification-container" id="notification-container"></div>
 
-  <!-- Cache-bust so you SEE changes immediately -->
-  <script src="script.js?v=3"></script>
+    <script src="script.js"></script>
 </body>
 </html>
